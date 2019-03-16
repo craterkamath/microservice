@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+    <meta charset="UTF-8">
+    <title>SelfieLessActs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.0/css/foundation.min.css'>
+    <link rel='stylesheet' href='http://cdn.materialdesignicons.com/1.8.36/css/materialdesignicons.min.css'>
+    <link rel="stylesheet" href="css/upload.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css'>
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.0.13/css/all.css'>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/moment.js"></script>
+
+  
+</head>
+
+<body>
+
+  <div class="page-wrapper chiller-theme toggled" style="margin: 75px 0px 50px 200px;">
+  <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+    <i class="fas fa-bars"></i>
+  </a>
+  <nav id="sidebar" class="sidebar-wrapper">
+    <div class="sidebar-content">
+      <div class="sidebar-brand">
+        <a href="#">Close</a>
+        <div id="close-sidebar">
+          <i class="fas fa-times"></i>
+        </div>
+      </div>
+      <div class="sidebar-header">
+        <div class="user-pic">
+          <img class="img-responsive img-rounded" src="images/logo.png"
+            alt="User picture">
+        </div>
+        <div class="user-info">
+          <span class="user-name">SelfieLess
+            <strong>Acts</strong>
+          </span>
+          <span class="user-role">Upload the deeds!</span>
+        </div>
+      </div>
+      <!-- sidebar-header  -->
+      <div class="sidebar-search">
+        <div>
+          <div class="input-group">
+            <input type="text" class="form-control search-menu" placeholder="Search...">
+            <div class="input-group-append">
+              <span class="input-group-text">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- sidebar-search  -->
+      <div class="sidebar-menu">
+        <ul>
+          <li class="header-menu">
+            <span>Overview</span>
+          </li>
+          <li class="sidebar-dropdown">
+            <a href="#">
+              <i class="fa fa-images"></i>
+              <span>Categories</span>
+              <span class="badge badge-pill badge-warning">Explore</span>
+            </a>
+            <div class="sidebar-submenu" style="display:block;">
+              <ul id="cat_list">
+                <li>
+                  <a href="#"> Streets
+                    <!-- <span class="badge badge-pill badge-success">Trending</span> -->
+                  </a>
+                </li>
+                <li>
+                  <a href="#">Home</a>
+                </li>
+                <li>
+                  <a href="#">Metro Station</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="sidebar-dropdown active">
+            <a href="#">
+              <i class="fa fa-shopping-cart"></i>
+              <span>Upload Images</span>
+            </a>
+            <div class="sidebar-submenu">
+              <ul>
+                <li>
+                  <a href="upload.html">Share the act
+                  </a>
+                </li>
+                <li>
+                  <a href="add.html">Add a Category/User</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="header-menu">
+            <span>Extra</span>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa fa-book"></i>
+              <span>Contact us</span>
+              <!-- <span class="badge badge-pill badge-primary">Beta</span> -->
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa fa-calendar"></i>
+              <span>About Us</span>
+            </a>
+          </li>
+ 
+        </ul>
+      </div>
+      <!-- sidebar-menu  -->
+    </div>
+    <!-- sidebar-content  -->
+    <div class="sidebar-footer">
+    </div>
+  </nav>
+  </main>
+
+  <h1 style="font-family:'Raleway'; color:white;">Upload your Image</h1>
+  <div class="wrapper">
+    <form action="upload_submit" method="get" accept-charset="utf-8">
+      <div class="box">
+      <div class="js--image-preview"></div>
+      <div class="upload-options">
+        <label>
+          <input type="file" class="image-upload" id="img1" accept="image/*" name="image_file" required />
+        </label>
+      </div>
+    </div>
+
+    <div class="form" id="form">
+
+      <span style="color:white">Insert Caption</span>
+      <input type="text" class="input" name="caption" id="caption"  required>
+      <span class="underline"></span>
+      
+      <span style="color:white">Insert Act-id</span>
+      <input type="text" class="input" name="actid" id="actid"  required>
+      <span class="underline"></span>
+      
+      <span style="color:white">Insert Username</span>
+      <input type="text" class="input" name="user_name"  id="uname" required>
+      <span class="underline"></span>
+    
+    </div>
+    <div class="container-submit-buttom text-center" style="width:100%">
+        
+        <div class="dropdown show">
+          <a class="btn btn-info dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Category
+          </a>
+          <div id="list" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="index.html"><input class="btn btn-success" name="submit" value="Option 1"></a>
+            <a class="dropdown-item" href="index.html"><input class="btn btn-success" name="submit" value="Option 2"></a>
+            <a class="dropdown-item" href="index.html"><input class="btn btn-success" name="submit" value="Option 3"></a>
+          </div>
+        </div>
+    </div>
+      
+    </form>
+  </div>
+</div>
+
+  
+  
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.js'></script>
+<script  src="js/index.js"></script>  
+<script  src="js/upload.js"></script>
+
+
+</body>
+
+</html>

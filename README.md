@@ -37,14 +37,14 @@ The SelfLessActs application will allow users of the application to upload image
 ```$ pip install -r requirements.txt```
 
 ## Steps to build any project from the list of projects/microservices
-```$ cd server```
+```$ cd <version>/```
 
 ```$ python app.py```
 
 Now monolithic REST service is being split up into two microservices - one catering to the user management, and another catering to the act management. These two microservices is being started in separate docker containers, running on one AWS instance. The microservices will talk to each other via their respective REST interfaces.
 
 ## Steps to build docker images and publish it into docker_hub repository
-``` $ cd server/docker/```
+``` $ cd docker/```
 
 ``` $ docker build -t Dockerfile .```
 
@@ -52,8 +52,17 @@ Now monolithic REST service is being split up into two microservices - one cater
 
 ``` $ docker push <dockerID>/<project_name>:latest```
 
-## Steps to create a docker network to have our containers communicate with each other  
-``` $ docker network create <network_name>```
+## Run all the containers as daemon process 
+
+``` $  chmod +x start_daemon.sh```
+
+```$ ./start_daemon.sh```
+
+## Kill all the daemon processes
+
+```$ chmod +x kill_all.sh```
+
+```$ ./kill_all.sh```
 
 ## Steps to run docker container from remote repository  
 ``` $ docker run -p <port_no>:80  -it <dockerID>/<project_name>:latest```
@@ -64,3 +73,5 @@ Now monolithic REST service is being split up into two microservices - one cater
 ## License
 
 This project is made available under the [MIT License](http://www.opensource.org/licenses/mit-license.php).
+
+[![ForTheBadge built-with-swag](http://ForTheBadge.com/images/badges/built-with-swag.svg)](https://github.com/craterkamath)
