@@ -29,8 +29,8 @@ import requests as r
 LOGIN_FILE_NAME = "login.csv"
 DB = "templates/images" 
 GLOBAL_LIST = "acts.csv"
-IP = "34.238.112.84:8080"
-INSTANCE_IP = "Set this"
+IP = "3.208.6.174:80"
+INSTANCE_IP = "34.226.230.93"
 count_requests = 0
 #IP = "127.0.0.1:5000"
 
