@@ -34,9 +34,16 @@ app = Flask(__name__)
 CORS(app)
 
 
+@app.errorhandler(405)
+def method_not_allowed(e):
+	global count_requests
+	count_requests += 1
+	return jsonify({'error': 405}), 405
+
 @app.route("/")
 def index():
     return render_template('index.html')
+
 
 @app.route("/api/v1/users", methods = ['POST', 'GET'])
 def add_user():
@@ -98,7 +105,7 @@ def remove_user(username = None):
 
 @app.route("/api/v1/acts/count", methods = ["GET"])
 def count_act():
-    if request.method == 'DELETE':
+    if request.method == 'GET':
         if not GLOBAL_LIST in os.listdir():
             return Response('[0]', status=200, mimetype='application/json')
         else:
@@ -120,5 +127,5 @@ def count_request():
         return Response('{}', status=405, mimetype='application/json')
     
 if __name__ == '__main__':
-    app.run(host = '0.0.0.0', port = 80, threaded=True)
-    #app.run(threaded = True, debug = True)
+    # app.run(host = '0.0.0.0', port = 80, threaded=True)
+    app.run(threaded = True, debug = True)

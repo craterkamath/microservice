@@ -38,6 +38,11 @@ count_requests = 0
 app = Flask(__name__)
 CORS(app)
 
+@app.errorhandler(405)
+def method_not_allowed(e):
+    global count_requests
+    count_requests += 1
+    return jsonify({'error': 405}), 405
 
 @app.route("/")
 def index():
@@ -316,7 +321,7 @@ def upload_act():
 def count_act():
     global count_requests
     count_requests += 1
-    if request.method == 'DELETE':
+    if request.method == 'GET':
         if not GLOBAL_LIST in os.listdir():
             return Response('[0]', status=200, mimetype='application/json')
         else:
@@ -339,5 +344,5 @@ def count_request():
 
     
 if __name__ == '__main__':
-    app.run(host = '0.0.0.0', port = 80, threaded=True)
-    #app.run(threaded = True, debug = True, port = 2000)
+    # app.run(host = '0.0.0.0', port = 80, threaded=True)
+    app.run(threaded = True, debug = True, port = 2000)
