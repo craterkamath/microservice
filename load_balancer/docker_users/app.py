@@ -71,6 +71,7 @@ def add_user():
         return Response('{}', status=201, mimetype='application/json')
     
     elif request.method == 'GET':    
+        print(request.headers)
         if not LOGIN_FILE_NAME in os.listdir():
             data = pd.DataFrame(columns = ['username', 'password'])
             data.to_csv(LOGIN_FILE_NAME, index = False)
@@ -127,5 +128,5 @@ def count_request():
         return Response('{}', status=405, mimetype='application/json')
     
 if __name__ == '__main__':
-    # app.run(host = '0.0.0.0', port = 80, threaded=True)
-    app.run(threaded = True, debug = True)
+    app.run(host = '0.0.0.0', port = 80, threaded=True)
+    #app.run(threaded = True, debug = True)

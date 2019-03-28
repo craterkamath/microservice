@@ -277,7 +277,9 @@ def upload_act():
         # Username and actId
         header = {"origin": INSTANCE_IP}
         resp = r.get( "http://"+ IP + "/api/v1/users", "{}", headers = header)
+        print("=============")
         print(resp.text)
+        print("=============")
         data_users = eval(resp.text)
         if request_data['username'] not in data_users or request_data["actId"] in data_acts["act_id"].tolist():
             return Response('{}', status=400, mimetype='application/json')
@@ -344,5 +346,5 @@ def count_request():
 
     
 if __name__ == '__main__':
-    # app.run(host = '0.0.0.0', port = 80, threaded=True)
-    app.run(threaded = True, debug = True, port = 2000)
+    app.run(host = '0.0.0.0', port = 80, threaded=True)
+    #app.run(threaded = True, debug = True, port = 2000)
