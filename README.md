@@ -4,6 +4,7 @@
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 [![ForTheBadge built-by-developers](http://ForTheBadge.com/images/badges/built-by-developers.svg)](https://github.com/craterkamath)
 
+All the Docker images used in the system is made available at: [Docker Hub](<https://hub.docker.com/u/craterkamath>)
 
 A photo sharing web app being hosted on AWS Cloud.
 
@@ -69,6 +70,12 @@ Now monolithic REST service is being split up into two microservices - one cater
 
 ## Steps to run docker container from local repository
 ``` $ docker run -p <port_no>:80 -it <project_name>```
+
+## Loadbalancer Set-up
+
+```To users instance: For path /api/v1/users```
+
+```To acts instance: For all requests``` 
 
 ## License
 
